@@ -12,7 +12,11 @@ checkSq = (arr1, arr2) => {
         if(correctIndex === -1){
             return 'Match Not found.'
         } arr2.splice(correctIndex, 1)
-    } return true
+        console.log(arr2);
+        if(arr2.length===0){
+            return true
+        }
+    } 
 }
 
-console.log(checkSq([1,2,3,2], [1,4,9,4]));
+console.log(checkSq([1,2,3,2], [1,4,9,-9]));
