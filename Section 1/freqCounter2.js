@@ -8,16 +8,23 @@
      }
      let c1 = {};
      let c2 = {};
-     for (let i of arr1){
-         c1[i] = (c1[i] || 0) + 1;
-     }console.log(c1);
-
-     for (let i of arr2){
-        c2[i] = (c2[i] || 0) + 1;
-    }console.log(c2);
-    console.log(Object.keys(arr1))
-    console.log(Object.keys(arr2))
+    for(let val of arr1){
+        c1[val] = (c1[val] || 0) + 1;
+    } 
+    for(let val of arr2){
+        c2[val] = (c2[val] || 0) + 1;
+    }
+    console.log(c1)
+    console.log(c2)
+    for(let key in c1){
+        if(!(key**2 in c2)){
+            return false;
+        }
+        if(c1[key]!==c2[key**2]){
+            return false
+        }
+    }return true
 
  }
 
- checkArr([1,2,3,1,5], [1,2,3,1,7]);
+ console.log(checkArr([1,2,3,1,5], [1,4,9,1,25]));
