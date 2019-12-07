@@ -12,23 +12,29 @@ bubbleSort = (arr) => {
     }
     return arr;
 }
-console.log(bubbleSort([ 3 , 4 , 3 , 3 , 4 , 5 , 7 , 4 , 4 , 5 , 2 ]));
+// console.log(bubbleSort([ 3 , 4 , 3 , 3 , 4 , 5 , 7 , 4 , 4 , 5 , 2 ]));
 
 bubbleSortOptimized = (arr) => {
+    var noSwaps;
     for(var i = arr.length; i >= 0; i--){
+        noSwaps = true;
         for(var j = 0; j < i-1; j++){
-            console.log(arr[j], arr[j+1]);
+            console.log(arr, arr[j], arr[j+1]);
             if(arr[j] > arr[j+1]){
                 // SWAP
                 const temp = arr[j]
                 arr[j] = arr[j+1];
                 arr[j+1] = temp;
+                noSwaps = false;
             }
-        }
+        
+         }if(noSwaps){break}
     }
     return arr
 }
 console.log(bubbleSortOptimized([ 3 , 4 , 3 , 3 , 4 , 5 , 7 , 4 , 4 , 5 , 2 ]));
+
+//Time Complexity = n^2
 
 
 
