@@ -1,0 +1,9 @@
+what is a class??
+
+-- A blueprint or a patter for creating objects (or, data-structures) with pre-defined properties and methods.
+-- JavaScript doesn't really have classes, the one invented in 2015 is basically syntacting sugar. 
+-- It takes help of prototypal-based-inheritence.
+-- technically it is not true object-oriented-programming.
+-- Array is technically not a class.
+
+
