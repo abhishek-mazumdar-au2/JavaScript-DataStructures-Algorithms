@@ -51,6 +51,20 @@ class SinglyLinkedList{
         return current
     }
 
+    //  ......SHIFT....... takes out the head element and return that.
+    shift(){
+        var shiftedElem = this.head;
+        if(this.head){
+            this.head = shiftedElem.next;
+            this.length--;
+            return shiftedElem.val;
+
+        } 
+        if(!this.head){
+            return undefined
+        }
+    }
+
 }
 
 
@@ -76,6 +90,10 @@ list.push(5);
 console.log(list);
 list.pop()
 console.log(list);
+console.log('.......');
+console.log(list.shift());
+console.log(list.shift());
+console.log(list)
 // var first =  new Node('Hi');
 // first.next = new Node('there');
 // first.next.next = new Node('how');
