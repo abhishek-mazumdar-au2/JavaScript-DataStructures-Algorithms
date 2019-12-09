@@ -81,6 +81,17 @@ class SinglyLinkedList{
         return this;
     }
 
+    // .......GET.......
+    get(index){
+        if(this.length<index || index < 0) return undefined;
+        var counter = 0;
+        var current = this.head;
+        while(counter!==index){
+            current = current.next;
+            counter++
+        } return current
+    }
+
 }
 
 
@@ -113,6 +124,8 @@ console.log(list.shift());
 list.unshift(1);
 console.log(list.unshift(2));
 console.log(list)
+console.log(list.get(1));
+console.log(list.get(0));
 // var first =  new Node('Hi');
 // first.next = new Node('there');
 // first.next.next = new Node('how');
