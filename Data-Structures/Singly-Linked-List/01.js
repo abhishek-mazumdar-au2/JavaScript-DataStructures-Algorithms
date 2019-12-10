@@ -14,7 +14,7 @@ class SinglyLinkedList{
         this.tail = null;
         this.length = 0;
     }
-    //                                 .......Instances of the Class........
+    //                                                                                                  .......Instances of the Class........
     // ....PUSH....
     push(val){
         var newNode = new Node(val);
@@ -39,6 +39,7 @@ class SinglyLinkedList{
     }
     // .......POP.........
     pop(){
+        if(!this.head) return undefined;
         var current = this.head;
         var newTail = current;
         while(current.next){
@@ -48,6 +49,10 @@ class SinglyLinkedList{
         this.tail = newTail;
         this.tail.next = null;
         this.length--
+        if(this.length===0){
+            this.head = null;
+            this.tail = null;
+        }
         return current
     }
 
@@ -57,26 +62,25 @@ class SinglyLinkedList{
         if(this.head){
             this.head = shiftedElem.next;
             this.length--;
-            return shiftedElem.val;
-
+            if(this.length === 0){
+                this.head = null;
+                this.tail = null;
+            }
         } 
         if(!this.head){
             return undefined
-        }
+        }return shiftedElem;
     }
 
     // .......UNSHIFT.......
     unshift(val){
-        var newNode = new Node(val)
-        if(!this.head){
+        var newNode = new Node(val);
+        if(!this.head) {
             this.head = newNode;
             this.tail = this.head;
-            newNode = this.tail;
-        } else {
-            var currentHead = this.head;
-            this.head.next = currentHead;
-            this.head = newNode;
         }
+        newNode.next = this.head;
+        this.head = newNode;
         this.length++;
         return this;
     }
@@ -92,8 +96,17 @@ class SinglyLinkedList{
         } return current
     }
 
+    // .......SET........
+    set(index, val){
+       var foundNode = this.get(index); // this implies list
+       if(foundNode){
+           foundNode.val = val;
+           return true
+       }return false;
+}
 }
 
+const list = new SinglyLinkedList();
 
 
 
@@ -103,9 +116,6 @@ class SinglyLinkedList{
 
 
 
-
-
-var list = new SinglyLinkedList();
 console.log(list);
 list.push(1)
 list.push(2);
@@ -126,6 +136,8 @@ console.log(list.unshift(2));
 console.log(list)
 console.log(list.get(1));
 console.log(list.get(0));
+console.log(list.set(1, 'newValue'));
+console.log(list);
 // var first =  new Node('Hi');
 // first.next = new Node('there');
 // first.next.next = new Node('how');
