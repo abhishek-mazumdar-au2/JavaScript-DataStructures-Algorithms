@@ -104,8 +104,35 @@ class SinglyLinkedList{
            return true
        }return false;
 }
-}
 
+// ------Pseudocode for the SET() function-------
+ //  1 -> 2 ->  val -> 5              list.set( val, index) if index = 2;
+//  0      1        2       3   
+ //   check this.length < index return undefined
+//   else,  index = 0 unshift()
+//   else, index = this.length - 1, push()
+//   var foundNode = get(index);
+//   if(get(index)){
+//      foundNode.val = val;
+//     return true
+// }return false
+
+    insert(index, val){
+        if (index>this.length)  return undefined;
+        if (index===0) return this.unshift(val);
+        if(index===this.length) return this.push(val);
+        const prevVal = this.get(index-1);     // 2
+        const currentVal = prevVal.next;  // or, var currentVal = this.get(index)
+        var newNode = new Node(val);
+        prevVal.next = newNode;
+        newNode.next = currentVal;
+        this.length++
+        return true
+    }
+}
+//    pv    
+//    1-------2----4-----6
+//    0      1      2      3
 const list = new SinglyLinkedList();
 
 
@@ -138,6 +165,11 @@ console.log(list.get(1));
 console.log(list.get(0));
 console.log(list.set(1, 'newValue'));
 console.log(list);
+console.log(list.push(4));
+console.log(list.insert(1, 'insertVal'));
+console.log(0987);
+console.log(list);
+
 // var first =  new Node('Hi');
 // first.next = new Node('there');
 // first.next.next = new Node('how');
