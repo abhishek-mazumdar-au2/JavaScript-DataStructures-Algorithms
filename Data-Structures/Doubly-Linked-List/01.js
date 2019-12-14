@@ -70,7 +70,19 @@ if(!this.head){
 this.length++
 return this
 }
+
+// -------GET-------
+get(index){
+    if(this.length===0 || index < 0 || index > this.length)return undefined;
+     let pointer = this.head;
+    let counter = 0;
+    while(counter!==index){  
+        pointer = pointer.next;
+        counter++;
     }
+     return pointer;
+}
+}
 
 // var list = new DoublyLinkedList();
 // var first = new Node(1);
@@ -95,3 +107,5 @@ console.log(list.shift());
 console.log('...................................');
 console.log(list.unshift('firstElement'));
 console.log(list.head);
+console.log('//////////////////////////////');
+console.log(list.get(0));
