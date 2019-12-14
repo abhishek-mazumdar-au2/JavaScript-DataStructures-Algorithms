@@ -30,18 +30,21 @@ class DoublyLinkedList{
 
     // -------POP--------
     pop(){
-        if(this.length===0){
-            return undefined
-        }else{
-            var toBePopped =this.tail;
-            var newTail = toBePopped.prev;
+        if(!this.head) return undefined;
+        var poppedNode = this.tail;
+        if(this.length===1){
+            this.head = null;
+            this.tail  = null;
+        } else{
+            var newTail = poppedNode.prev;
             this.tail = newTail;
-            this.tail.next = null;
-            this.length--;
-            return toBePopped;
+            newTail.next = null;
+        } this.length--
+        return this;
+
         }
     }
-}
+
 // var list = new DoublyLinkedList();
 // var first = new Node(1);
 // console.log(first)
@@ -59,4 +62,4 @@ console.log(list.push(4))
 console.log(list.push(5))
 
 console.log(list.pop());
-console.log(list);
+console.log(list.tail);
