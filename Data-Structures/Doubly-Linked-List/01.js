@@ -82,6 +82,20 @@ get(index){
     }
      return pointer;
 }
+
+// -------SET-------
+set(index, val) {
+    if (!this.head){
+        this.head = new Node(val);
+        this.tail = new Node(val);
+    }
+    else if(index < 0 || index > this.length) return undefined
+    else {
+        let changeItsVal = this.get(index);
+        changeItsVal.val = val;
+       } 
+    return this
+}
 }
 
 // var list = new DoublyLinkedList();
@@ -109,3 +123,6 @@ console.log(list.unshift('firstElement'));
 console.log(list.head);
 console.log('//////////////////////////////');
 console.log(list.get(0));
+console.log(list.set(0, 'changedValue'))
+console.log('--------------------------------------------------------------');
+console.log(list);
