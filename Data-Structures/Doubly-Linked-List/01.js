@@ -96,6 +96,36 @@ set(index, val) {
        } 
     return this
 }
+
+//-------insert-------
+insert(index, val){
+   if(index<0 | index>this.length) return undefined;
+   if(index===0) return this.unshift(val);
+   if(index===this.length) return this.push(val);
+   var beforeNode = this.get(index-1);
+   var newNode = new Node(val);
+   var  afterNode = beforeNode.next;
+   beforeNode.next = newNode;
+   newNode.prev = beforeNode;
+   newNode.next = afterNode;
+   afterNode.prev = newNode;
+   this.length++
+   return this;
+}
+
+// --------REMOVE--------
+remove(index) {
+    if(index<0||index>this.length) return undefined;
+    if(!this.head) return undefined;
+    if(index===0) return this.shift()
+    if(index===this.length) return this.pop()
+    let previous = this.get(index-1)
+    let nex = this.get(index+1)
+    previous.next = nex;
+    nex.prev = previous;
+    this.length--
+    return this;
+}
 }
 
 // var list = new DoublyLinkedList();
@@ -126,3 +156,11 @@ console.log(list.get(0));
 console.log(list.set(0, 'changedValue'))
 console.log('--------------------------------------------------------------');
 console.log(list);
+console.log('[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[ [[[[[[[[[[[[[ [[[[[[[[[[[[[[[[ [[[[[[[[[[[');
+console.log(list.insert(2, 'the third index'))
+// console.log('[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[ [[[[[[[[[[[[[ [[[[[[[[[[[[[[[[ [[[[[[[[[[[');
+
+// console.log(list)
+// list.remove(0)
+// console.log(list.remove(0));
+
