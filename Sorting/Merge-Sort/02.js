@@ -18,7 +18,15 @@ merge = (arr1, arr2) => {
         results.push(arr2[j])
         j++
     }
-    console.log(results);
+    return(results);
 }
-                // i                                         j
-merge([ 1 , 3 , 4 , 5 , 6 , 21 ] ,  [ 8 , 21 , 32 , 33 , 40 ])
+
+breaking = arr => {
+    if(arr.length<=1) return arr
+    let mid = arr.length/2;
+    let left = breaking(arr.slice(0, mid))
+    let right = breaking(arr.slice(mid))
+    return merge(left, right);
+    }
+            // i                                         j
+console.log(breaking([ 1 , 3 , 4 , 5 , 6 , 21, 1 , 3 ] ));

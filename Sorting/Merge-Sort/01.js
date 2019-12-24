@@ -1,17 +1,12 @@
-var counter = 0
-breakIntoHalves = (arr) => {
-    const firstHalve = arr.slice(0, arr.length/2);
-    const secondHalve = arr.slice(arr.length/2, arr.length);
-    // console.log(firstHalve, secondHalve);\
-    while(counter===0){
-        console.log(breakIntoHalves(firstHalve))
-        conter++
-    }
-    while(counter===0){
-        console.log(breakIntoHalves(secondHalve))
-        counter++
-    }
-}
-arr = [3, 1,7,2,2, 4, 2,10]
+import merge from './02'
 
-console.log(breakIntoHalves(arr))
+breaking = arr => {
+if(arr.length<=1) return arr
+let mid = arr.length/2;
+let left = breaking(arr.slice(0, mid))
+let right = breaking(arr.slice(mid))
+return merge(left, right);
+}
+
+console.log(breaking([1,2,3,4,5]));
+

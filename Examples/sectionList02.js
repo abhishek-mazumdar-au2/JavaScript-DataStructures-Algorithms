@@ -9,7 +9,7 @@ sectionList = (original) => {
  let result=[];
  titlemap.forEach((list,title)=>result.push({title:title,data:list}));
  result.sort((a,b)=>a.title.charCodeAt(0)-b.title.charCodeAt(0));
- console.log(result);
+return result
  }  
 
  const myArray = [
@@ -21,4 +21,4 @@ sectionList = (original) => {
     {name: 'Bahadur', phone: 'xxxxxx'},
   ]
 
-sectionList(myArray);
+console.log(sectionList(myArray));
